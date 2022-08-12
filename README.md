@@ -1,3 +1,24 @@
+
+# Deliverables
+
+- `/investments/export` posts a CSV file to Investments endpoint.
+
+    1. How might you make this service more secure?
+    Adding Authentication & Middleware to the admin would prevent open access to the endpoint.
+    Restrict and filter addresses that can access the Investment, and Companies endpoints. 
+    Apis down the line would be authenticated from the admin, using a JWT token for example.
+    
+    2. How would you make this solution scale to millions of records?
+    To scale a solution, there both needs to be more resources and with that resource management.
+    Adding additional servers (horizontal scaling) is more reliable in practice but requires load balancing of requests between the machines.
+    In practice the most resource intensive task will be mapping all fields into a CSV format, this could be put own it's own server. If requests are made         often enough it might be better to store the CSV rather than transform it every time.
+    
+    3. What else would you have liked to improve given more time?
+    - It needs a unit test for the CSV function and the export endpoint.
+    - Swagger Documentation to see the library of endpoints
+    - Setup Prettier & ESLint
+
+
 # Moneyhub Tech Test - Investments and Holdings
 
 At Moneyhub we use microservices to partition and separate the concerns of the codebase. In this exercise we have given you an example `admin` service and some accompanying services to work with. In this case the admin service backs a front end admin tool allowing non-technical staff to interact with data.
@@ -75,3 +96,4 @@ Financial Companies - localhost:8082
 
 Admin - localhost:8083
 - `/investments/:id` get an investment record by id
+- `/investments/export` posts a CSV file to Investments endpoint.
