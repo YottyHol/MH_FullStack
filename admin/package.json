@@ -24,10 +24,21 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.19.0",
     "config": "^3.3.3",
     "express": "^4.17.1",
     "ramda": "^0.27.1",
     "request": "^2.88.2"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
   }
 }

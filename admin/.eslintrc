@@ -1,3 +1,20 @@
 {
-  "extends": "@mft/eslint-config-momentumft"
+  "extends": 
+  [
+    "@mft/eslint-config-momentumft",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules":{
+    "linebreak-style": 0
+,
+  "prettier/prettier": [
+    "error",
+    {
+      "endOfLine": "auto"
+    }
+  ]
+}
 }

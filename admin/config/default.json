@@ -1,4 +1,7 @@
 {
   "port": 8083,
-  "investmentsServiceUrl": "http://localhost:8081"
+  "investmentsServiceUrl": "http://localhost:8081",
+  "companyServiceUrl":"http://localhost:8082",
+  "adminServiceUrl":"http://localhost:8083"
+
 }
