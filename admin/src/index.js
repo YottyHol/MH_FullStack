@@ -32,31 +32,39 @@ async function getHoldings()
           });
       });
   });
-  
     return finHoldings
-  
 }
 
-app.get("/investments/export", async (req, res) => {
+async function exportToCsv() {
   try{
     var holdings = await getHoldings();
     
     // If you use "await", code must be inside an asynchronous function:
-    (async () => {
+    data = await (async () => {
       const csv = new ObjectsToCsv(holdings);
 
       // Return the CSV file as string:
-      const data = (await csv.toString());
-      
-    await axios.post(`${config.investmentsServiceUrl}/investments/export`, {data});
-    res.send(200)
+       data = (await csv.toString());
+       return data
     })();
+    return data
   }
   catch(e) {
     console.error(e)
     res.send(500)
   }
+}
 
+app.get("/investments/export", async (req, res) => {
+  try{
+    var data = await exportToCsv();
+    await axios.post(`${config.investmentsServiceUrl}/investments/export`, {data});
+    res.send(200)
+  }
+  catch(e) {
+    console.error(e)
+    res.send(500)
+  }
 }),
 
 app.get("/investments/:id", (req, res) => {
