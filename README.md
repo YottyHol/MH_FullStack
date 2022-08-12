@@ -4,11 +4,13 @@
 - `/investments/export` posts a CSV file to Investments endpoint.
 
     1. How might you make this service more secure?
+    
     Adding Authentication & Middleware to the admin would prevent open access to the endpoint.
     Restrict and filter addresses that can access the Investment, and Companies endpoints. 
     Apis down the line would be authenticated from the admin, using a JWT token for example.
     
     2. How would you make this solution scale to millions of records?
+    
     To scale a solution, there both needs to be more resources and with that resource management.
     Adding additional servers (horizontal scaling) is more reliable in practice but requires load balancing of requests between the machines.
     In practice the most resource intensive task will be mapping all fields into a CSV format, this could be put own it's own server. If requests are made         often enough it might be better to store the CSV rather than transform it every time.
